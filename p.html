@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: url('https://images.unsplash.com/photo-1560347876-aeef00ee58a1?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    color: #fff;
+  }
+
+  .overlay {
+    background: rgba(0,0,0,0.6);
+    min-height: 100vh;
+    padding: 50px 20px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  p.subtitle {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 50px;
+  }
+
+  .pricing-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 30px 20px;
+    width: 300px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  }
+
+  .card.selected {
+    border: 3px solid #ff6f61;
+  }
+
+  .card h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  .card p.price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ff6f61;
+  }
+
+  .card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  .card ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .card button {
+    background: #ff6f61;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .card button:hover {
+    background: #ff3b2f;
+  }
+
+  /* Specific card colors */
+  .low h2 { color: #2ecc71; }
+  .medium h2 { color: #f1c40f; }
+  .high h2 { color: #e74c3c; }
+
+</style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <h1>Our Hotel Prices</h1>
+      <p class="subtitle">Choose the plan that suits your comfort and budget.</p>
+      
+      <div class="pricing-cards">
+        <div class="card low">
+          <h2>Low</h2>
+          <p class="price">$50/night</p>
+          <ul>
+            <li>Free Wi-Fi</li>
+            <li>Standard Room</li>
+            <li>Breakfast Included</li>
+          </ul>
+          <button>Book Now</button>
+        </div>
+        
+        <div class="card medium">
+          <h2>Medium</h2>
+          <p class="price">$120/night</p>
+          <ul>
+            <li>Free Wi-Fi</li>
+            <li>Deluxe Room</li>
+            <li>Breakfast & Dinner</li>
+            <li>Swimming Pool Access</li>
+          </ul>
+          <button>Book Now</button>
+        </div>
+        
+        <div class="card high">
+          <h2>High</h2>
+          <p class="price">$250/night</p>
+          <ul>
+            <li>Free Wi-Fi</li>
+            <li>Luxury Suite</li>
+            <li>All Meals Included</li>
+            <li>Spa & Pool Access</li>
+            <li>Private Balcony</li>
+          </ul>
+          <button>Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Remove selected from all cards
+      cards.forEach(c => c.classList.remove('selected'));
+      // Add selected to clicked card
+      card.classList.add('selected');
+    });
+
+    // Button click alert
+    card.querySelector('button').addEventListener('click', (e) => {
+      e.stopPropagation(); // prevent card click
+      const plan = card.querySelector('h2').innerText;
+      const price = card.querySelector('.price').innerText;
+      alert(`You selected the ${plan} plan at ${price}. Proceed to booking!`);
+    });
+  });
+</script>
+</body>
+</html>

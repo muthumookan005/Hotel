@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTEL BOOKING</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+ <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="about.html">
+    <link rel="stylesheet" href="hotel.html">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    <!-- BRAND -->
+    <a class="navbar-brand" href="#">ByteBloom</a>
+
+    <!-- TOGGLER -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="p.html">Price</a></li>
+         
+    <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)" onclick="showBooking()">Login</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SEARCH -->
+    <form class="d-flex ms-auto" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>
+
+<!---silder bar-->
+  <div class="video-bg">
+    <video width="100%" height="550px" autoplay muted loop>
+        <source src="img/v2.mp4" type="video/mp4">
+
+    </video>
+  </div>
+   <div class="video-content">
+    <h1>Welcome to ByteBloom</h1>
+    <p>Grow with Technology</p>
+    <button class="btn btn-outline-success" id="bb" type="submit">View Now</button>
+  </div>
+</div>
+
+<!--card insert-->
+<div class="con">
+
+  <!-- Hotel 1: Raj Mahal Palace -->
+  <div class="card" style="width: 18rem;">
+    <img src="img/h1.avif" class="card-img-top" alt="Raj Mahal Palace">
+    <div class="card-body">
+      <h5 class="card-title">Raj Mahal Palace</h5>
+      <p class="card-text">Our Hotel is Pleasant and Treats Customers Very WELL...</p>
+     <a href="about.html?name=Raj%20Mahal%20Palace
+&heroImg=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1566073771259-6a8506099945
+&heroTitle=Timeless%20Royal%20Hospitality
+&heroSubtitle=HERITAGE%20PALACE
+&heroDesc=Where%20Indian%20heritage%20meets%20modern%20luxury
+&rooms=%5B
+%7B%22name%22%3A%22Maharaja%20Suite%22,
+%22img%22%3A%22https%3A%2F%2Fimages.unsplash.com%2Fphoto-1618773928121-c32242e63f39%22,
+%22price%22%3A%22%E2%82%B918%2C000%20%2F%20night%22
+%7D,
+%7B%22name%22%3A%22Royal%20Deluxe%22,
+%22img%22%3A%22https%3A%2F%2Fimages.unsplash.com%2Fphoto-1590490360182-c33d57733427%22,
+%22price%22%3A%22%E2%82%B912%2C000%20%2F%20night%22
+%7D
+%5D"
+class="btn btn-primary" id="y">Book Now</a>
+    </div>
+  </div>
+
+  <!-- Hotel 2: Aura Deluxe -->
+<div class="card" style="width: 18rem;">
+  <img src="img/h3.avif" class="card-img-top" alt="Aura Deluxe">
+  <div class="card-body">
+    <h5 class="card-title">Aura Deluxe</h5>
+    <p class="card-text">Our Hotel is Pleasant and Treats Customers Very WELL...</p>
+<a href="about.html?name=Aura%20Hotel
+&heroImg=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1501117716987-c8e1ecb210c7
+&heroTitle=Aura%20Luxury
+&heroSubtitle=AURA%20EXPERIENCE
+&heroDesc=Luxury%20stay%20with%20modern%20comfort
+&rooms=%5B
+%7B%22name%22%3A%22Aura%20Suite%22,
+%22img%22%3A%22https%3A%2F%2Fimages.unsplash.com%2Fphoto-1618773928121-c32242e63f39%22,
+%22price%22%3A%22%E2%82%B912%2C000%20%2F%20night%22
+%7D,
+%7B%22name%22%3A%22Aura%20Deluxe%22,
+%22img%22%3A%22https%3A%2F%2Fimages.unsplash.com%2Fphoto-1590490360182-c33d57733427%22,
+%22price%22%3A%22%E2%82%B98%2C500%20%2F%20night%22
+%7D
+%5D"
+class="btn btn-primary" id="y">Book Now</a>
+
+  </div>
+</div>
+  <!-- Hotel 3: Gen Z -->
+  <div class="card" style="width: 18rem;">
+    <img src="img/h2.avif" class="card-img-top" alt="Gen Z">
+    <div class="card-body">
+      <h5 class="card-title">Gen Z</h5>
+      <p class="card-text">Our Hotel is Pleasant and Treats Customers Very WELL...</p>
+<a href="about.html?name=Gen%20Z
+&heroImg=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1522708323590-d24dbb6b0267
+&heroTitle=Gen%20Z%20Luxury
+&heroSubtitle=MODERN%20EXPERIENCE
+&heroDesc=Stylish%20stays%20for%20the%20young%20and%20trendy
+&rooms=%5B
+%7B%22name%22%3A%22Gen%20Z%20Suite%22,
+%22img%22%3A%22https%3A%2F%2Fimages.unsplash.com%2Fphoto-1554995207-c18c203602cb%22,
+%22price%22%3A%22%E2%82%B911%2C000%20%2F%20night%22
+%7D,
+%7B%22name%22%3A%22Gen%20Z%20Deluxe%22,
+%22img%22%3A%22https%3A%2F%2Fimages.unsplash.com%2Fphoto-1611892440504-42a792e24d32%22,
+%22price%22%3A%22%E2%82%B98%2C000%20%2F%20night%22
+%7D
+%5D"
+class="btn btn-primary" id="y">Book Now</a>
+
+</div>
+
+  </div>
+
+</div>
+
+
+<!--date calculation-->
+<div class="container mt-4" id="cc">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="card p-4 shadow">
+        <h3 class="text-center mb-3">Hotel Booking Details</h3>
+
+        <!-- AGE -->
+        <label>Date of Birth</label>
+        <input type="date" id="dob" class="form-control mb-3">
+
+        <!-- TIME -->
+        <label>Start Time</label>
+        <input type="time" id="startTime" class="form-control mb-3">
+
+        <label>End Time</label>
+        <input type="time" id="endTime" class="form-control mb-3">
+
+        <!-- DATE -->
+        <label>Check-in Date</label>
+        <input type="date" id="startDate" class="form-control mb-3" onchange="restrictEndDate()">
+
+        <label>Check-out Date</label>
+        <input type="date" id="endDate" class="form-control mb-3">
+
+        <!-- LOGIN BUTTON -->
+        <button class="btn btn-primary w-100" onclick="loginCheck()">
+          Login
+        </button>
+
+        <!-- RESULT -->
+        <div class="mt-4 fw-bold text-center" id="result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--About-->
+<h2 id="head">OUR BEST HOTEL</h2><br>
+<div id="hotel-wrapper">
+<div class="hotel-card" id="two">
+<div class="image-box">
+    <img src="img/h4.avif" alt="Hotel Image">
+    
+  </div>
+
+  <div class="hotel-info">
+    <h5>Grand Palace Hotel</h5> <span class="like-icon">❤</span>
+    <p>Luxury stay with modern facilities The 5-star Trident Chennai features <br>
+      an outdoor pool, pampering spa treatments and 24-hour room service. <br>
+      The hotel is 
+      located near Chennai airport </p>
+    <p>$8000</p>
+
+    <div class="hotel-meta">
+      <span>⭐ 4.5</span>
+      <span>📍 Chennai</span>
+    </div>
+      <a href="hotel.html" class="btn btn-book" id="rr">Book Now</a>
+  </div>
+</div>
+
+
+<div id="hotel-wrapper">
+<div class="hotel-card" id="two">
+<div class="image-box">
+    <img src="img/h7.avif" alt="Hotel Image">
+    
+  </div>
+
+  <div class="hotel-info">
+    <h5>Grand Palace Hotel</h5> <span class="like-icon">❤</span>
+    <p>Coimbatore offers luxury hotels like Vivanta by Taj and The Residency <br>
+       comfortable mid-range stays such as Hotel City Tower, budget-friendly <br>
+       options like Zostel and FabHotels.</p>
+    <p>$5500</p>
+
+    <div class="hotel-meta">
+      <span>⭐ 4.5</span>
+      <span>📍 Comibatore</span>
+    </div>
+<a href="h.html" class="btn btn-book" id="rr">Book Now</a>
+   
+  </div>
+</div>
+
+
+
+
+<div id="hotel-wrapper">
+<div class="hotel-card" id="two">
+<div class="image-box">
+    <img src="img/h1.avif" alt="Hotel Image">
+    
+  </div>
+
+  <div class="hotel-info">
+    <h5>Grand Palace Hotel</h5> <span class="like-icon">❤</span>
+    <p>Bangalore offers luxury stays like The Leela Palace and Taj  <br>
+      
+      West End, mid-range options. such as Radisson Blu and Lemon Tree, <br>
+      budget-friendly 
+      hotels like Zostel and Treebo,</p>
+    <p>$10000</p>
+
+    <div class="hotel-meta">
+      <span>⭐ 4.5</span>
+      <span>📍 Bangalore</span>
+    </div>
+    
+<a href="h.html" class="btn btn-book" id="rr">Book Now</a>    </div>
+
+  
+</div>
+
+<div>
+  <h2 id="id">International Hotel</h2>
+</div>
+<!--inter hotel-->
+ <div class="video-bg">
+    <video width="100%" height="550px" autoplay muted loop>
+        <source src="img/vv.mp4" type="video/mp4">
+
+    </video>
+ </div>
+ <!--card insert-->
+<div class="mm">
+  <div class="card hotel-unique">
+    <div class="img-wrap">
+      <img src="img/hh6.jpg" class="card-img-top" alt="">
+      <span class="badge-top">POPULAR</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Marriott</h5>
+      <p class="card-text">Our Hotel is pleasant and treats customers very well.</p>
+      <a href="inner.html?name=Marriott
+&heroImg=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1600585154340-be6161a56a0c
+&heroTitle=Marriott%20Luxury
+&heroSubtitle=POPULAR%20STAY
+&heroDesc=Luxury%20hotel%20with%20modern%20amenities%20and%20excellent%20service
+&rooms=%5B
+%7B%22name%22%3A%22Marriott%20Suite%22,
+%22img%22%3A%22https%3A%2F%2Fimages.unsplash.com%2Fphoto-1522708323590-d24dbb6b0267%22,
+%22price%22%3A%22%E2%82%B912%2C000%20%2F%20night%22
+%7D,
+%7B%22name%22%3A%22Marriott%20Deluxe%22,
+%22img%22%3A%22https%3A%2F%2Fimages.unsplash.com%2Fphoto-1576675789233-b7d9e4f9d7c6%22,
+%22price%22%3A%22%E2%82%B98%2C500%20%2F%20night%22
+%7D
+%5D"class="btn book-btn" onclick=" goToHotel()">Book Now</a>
+    </div>
+  </div>
+
+  <div class="card hotel-unique">
+    <div class="img-wrap">
+      <img src="img/hh3.jpg" class="card-img-top" alt="">
+      <span class="badge-top">NEW</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Hilton</h5>
+      <p class="card-text">Our Hotel is pleasant and treats customers very well.</p>
+      <a href="inter.html" class="btn book-btn" onclick=" goToHotel()">Book Now</a>
+    </div>
+  </div>
+
+  <div class="card hotel-unique">
+    <div class="img-wrap">
+      <img src="img/hh4.jpg" class="card-img-top" alt="">
+      <span class="badge-top">BEST</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Wyndham</h5>
+      <p class="card-text">Our Hotel is pleasant and treats customers very well.</p>
+      <a href="inter.html" class="btn book-btn" onclick=" goToHotel()">Book Now</a>
+  
+    </div>
+  </div>
+</div>
+<!--Offer section-->
+<section class="offer-section">
+  <h2 class="offer-title">🎄 Christmas & 🎆 New Year Special Offers</h2>
+  <p class="offer-subtitle">Celebrate the season with exclusive hotel deals</p>
+
+  <div class="offer-container">
+
+    <!-- Christmas Offer -->
+    <div class="offer-card christmas">
+      <h3>🎄 Christmas Special</h3>
+      <p class="offer-price">Flat <span>30% OFF</span></p>
+      <ul>
+        <li>🎁 Complimentary Christmas Dinner</li>
+        <li>🎶 Live Music Night</li>
+        <li>🏊 Free Pool Access</li>
+      </ul>
+      <p class="offer-date">Valid: Dec 20 – Dec 26</p>
+    <a href="christmas.html" class="btn btn-success">Book Now</a>
+
+    </div>
+
+    <!-- New Year Offer -->
+    <div class="offer-card newyear">
+      <h3>🎆 New Year Bash</h3>
+      <p class="offer-price">Flat <span>40% OFF</span></p>
+      <ul>
+        <li>🥂 New Year Gala Dinner</li>
+        <li>🎉 DJ & Fireworks</li>
+        <li>🛏 Late Checkout</li>
+      </ul>
+      <p class="offer-date">Valid: Dec 30 – Jan 2</p>
+  <a href="newyear.html" class="btn btn-success">Book Now</a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!--footer-->
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h3>StayLux Hotels</h3>
+      <p>Your comfort is our priority. Experience luxury and hospitality like never before.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Rooms</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Booking</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h4>Subscribe</h4>
+      <p>Get the latest offers and updates straight to your inbox.</p>
+      <form>
+        <input type="email" placeholder="Enter your email">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png"/></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 StayLux Hotels. All rights reserved.</p>
+  </div>
+</footer>
+<script src="new.js"></script> 
+</body>
+</html>

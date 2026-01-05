@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Booking</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:#333;background:#fff}
+
+/* HEADER */
+header{position:fixed;top:0;width:100%;z-index:100;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:18px 40px;box-shadow:0 5px 20px rgba(0,0,0,0.08);}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem}
+.book-btn{border:1px solid #b89b5e;background:none;padding:8px 20px;color:#b89b5e;cursor:pointer}
+
+/* HERO */
+.hero{height:100vh;background:center/cover;display:flex;align-items:center;padding-top:80px;}
+.hero-box{background:rgba(255,255,255,0.93);padding:50px;margin-left:50px;max-width:500px;}
+.hero-box span{color:#b89b5e;letter-spacing:2px;font-size:0.8rem;}
+.hero-box h1{font-family:'Playfair Display',serif;font-size:3rem;margin:15px 0;}
+
+/* SECTIONS */
+section{padding:80px 40px}
+.center{text-align:center}
+
+/* STEP FLOW */
+.step{max-width:900px;margin:auto;text-align:center}
+.hidden{display:none}
+
+/* INPUTS */
+.input-row{display:flex;justify-content:center;gap:20px;margin-top:20px}
+input,select{padding:10px;border:1px solid #ccc}
+
+/* ERROR MESSAGE */
+.error{color:red;margin-top:10px;font-size:0.9rem;}
+
+/* BUTTON */
+.primary{margin-top:30px;background:#b89b5e;color:#fff;border:none;padding:12px 35px;cursor:pointer}
+
+/* EXPERIENCE */
+.choice-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.choice{border:1px solid #b89b5e;padding:20px 30px;cursor:pointer}
+.choice.active{background:#b89b5e;color:#fff}
+
+/* ROOMS */
+.room-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:30px}
+.room{box-shadow:0 15px 40px rgba(0,0,0,0.12);cursor:pointer;transition:.3s}
+.room:hover{transform:translateY(-8px)}
+.room img{width:100%;height:180px;object-fit:cover}
+.room-info{padding:20px}
+.room.active{outline:3px solid #b89b5e}
+
+/* FINAL */
+.done{color:#b89b5e;font-size:1.3rem;margin-top:20px}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(30px);transition:1s ease}
+.show{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+footer{text-align:center;padding:30px;color:#777}
+
+/* MOBILE */
+@media(max-width:768px){.hero-box{margin:20px}.input-row,.choice-row{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" id="navbar-logo">Raj Mahal Palace</div>
+  <button class="book-btn" onclick="scrollToBooking()">Book Stay</button>
+</header>
+
+<!-- HERO -->
+<section class="hero fade" id="hero-section">
+  <div class="hero-box">
+    <span id="hero-subtitle">HERITAGE PALACE</span>
+    <h1 id="hero-title">Timeless Royal Hospitality</h1>
+    <p id="hero-desc">Where Indian heritage meets modern luxury</p>
+  </div>
+</section>
+
+<!-- STEP 1: Dates -->
+<section class="step fade" id="booking">
+  <h2 class="center">Choose Your Dates</h2>
+  <div class="input-row">
+    <input type="date" id="checkin">
+    <input type="date" id="checkout">
+  </div>
+  <div class="error" id="dateError"></div>
+  <button class="primary" onclick="validateStep1()">Continue</button>
+</section>
+
+<!-- STEP 2: Experience -->
+<section class="step hidden fade" id="step2">
+  <h2>Select Your Experience</h2>
+  <div class="choice-row">
+    <div class="choice" onclick="selectChoice(this)">Royal Living</div>
+    <div class="choice" onclick="selectChoice(this)">Fine Dining</div>
+    <div class="choice" onclick="selectChoice(this)">Pool & Spa</div>
+  </div>
+  <div class="error" id="choiceError"></div>
+  <button class="primary" onclick="validateStep2()">Continue</button>
+</section>
+
+<!-- STEP 3: Room -->
+<section class="step hidden fade" id="step3">
+  <h2>Select Your Room</h2>
+  <div class="room-grid" id="room-grid">
+    <!-- Room content will be generated dynamically -->
+  </div>
+  <div class="error" id="roomError"></div>
+  <button class="primary" onclick="validateStep3()">Confirm Booking</button>
+</section>
+
+<!-- STEP 4: Final -->
+<section class="step hidden fade" id="step4">
+  <h2>Reservation Confirmed</h2>
+  <p>Our royal concierge will prepare your stay</p>
+  <span class="done">✔ Thank you for choosing <span id="final-hotel-name"></span></span>
+</section>
+
+<footer>
+© 2025 <span id="footer-hotel-name">Raj Mahal Palace</span>, India
+</footer>
+
+<script>
+// Helper: get URL parameters
+function getQueryParams(){
+  const params=new URLSearchParams(window.location.search);
+  return {
+    name: params.get('name') || 'Raj Mahal Palace',
+    heroImg: params.get('heroImg') || 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b',
+    heroTitle: params.get('heroTitle') || 'Timeless Royal Hospitality',
+    heroSubtitle: params.get('heroSubtitle') || 'HERITAGE PALACE',
+    heroDesc: params.get('heroDesc') || 'Where Indian heritage meets modern luxury',
+    rooms: JSON.parse(params.get('rooms') || '[]')
+  };
+}
+
+// Fill content dynamically
+const hotel = getQueryParams();
+
+// Update navbar, hero, footer
+document.getElementById('navbar-logo').textContent = hotel.name;
+document.getElementById('hero-section').style.backgroundImage = `url('${hotel.heroImg}')`;
+document.getElementById('hero-title').textContent = hotel.heroTitle;
+document.getElementById('hero-subtitle').textContent = hotel.heroSubtitle;
+document.getElementById('hero-desc').textContent = hotel.heroDesc;
+document.getElementById('footer-hotel-name').textContent = hotel.name;
+document.getElementById('final-hotel-name').textContent = hotel.name;
+
+// Generate rooms dynamically
+const roomGrid = document.getElementById('room-grid');
+if(hotel.rooms.length>0){
+  hotel.rooms.forEach(r=>{
+    const div = document.createElement('div');
+    div.className='room';
+    div.onclick=()=>selectRoom(div);
+    div.innerHTML=`<img src="${r.img}">
+                     <div class="room-info">
+                       <h3>${r.name}</h3>
+                       <p>${r.price}</p>
+                     </div>`;
+    roomGrid.appendChild(div);
+  });
+}
+
+// fade animation
+const fades=document.querySelectorAll('.fade');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>e.isIntersecting && e.target.classList.add('show'));},{threshold:0.2});
+fades.forEach(f=>obs.observe(f));
+
+// scroll
+function scrollToBooking(){document.getElementById('booking').scrollIntoView({behavior:'smooth'})}
+
+// date restriction
+const checkin=document.getElementById('checkin');
+const checkout=document.getElementById('checkout');
+checkin.addEventListener('change',()=>{if(checkin.value) checkout.min=checkin.value;});
+checkout.addEventListener('change',()=>{if(checkout.value) checkin.max=checkout.value;});
+
+// step validation & navigation
+function nextStep(n){
+  document.querySelectorAll('.step').forEach(s=>s.classList.add('hidden'));
+  document.getElementById('step'+n)?.classList.remove('hidden');
+}
+
+function validateStep1(){
+  const dateError=document.getElementById('dateError');
+  if(!checkin.value || !checkout.value){dateError.textContent="Please select both Check-In and Check-Out dates";}
+  else{dateError.textContent=""; nextStep(2);}
+}
+
+function selectChoice(el){
+  document.querySelectorAll('.choice').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+}
+function validateStep2(){
+  const choiceError=document.getElementById('choiceError');
+  const selected=document.querySelector('.choice.active');
+  if(!selected){choiceError.textContent="Please select an experience";}
+  else{choiceError.textContent=""; nextStep(3);}
+}
+let selectedRoom=null;
+function selectRoom(el){
+  document.querySelectorAll('.room').forEach(r=>r.classList.remove('active'));
+  el.classList.add('active');
+  selectedRoom=el;
+}
+function validateStep3(){
+  const roomError=document.getElementById('roomError');
+  if(!selectedRoom){roomError.textContent="Please select a room";}
+  else{roomError.textContent=""; nextStep(4);}
+}
+</script>
+
+</body>
+</html>

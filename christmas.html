@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Christmas Offer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+}
+
+/* HERO SECTION */
+.hero{
+  background:linear-gradient(135deg,#b30000,#ff4d4d);
+  color:white;
+  padding:80px 20px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-content{
+  max-width:1100px;
+  margin:auto;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+.hero h2{
+  font-size:30px;
+  color:#ffe066;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:520px;
+  line-height:1.6;
+}
+
+/* 🎅 SANTA CLAUS */
+.santa{
+  position:absolute;
+  right:40px;
+  bottom:0;
+  width:300px;
+  z-index:10;
+  animation: float 3s ease-in-out infinite;
+}
+
+.santa img{
+  width:100%;
+}
+
+/* OFFER ITEMS */
+.offers{
+  max-width:1100px;
+  margin:60px auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.offer-item{
+  background:white;
+  padding:25px;
+  text-align:center;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.offer-item h3{
+  color:#b30000;
+  margin-bottom:10px;
+}
+
+/* BUTTON */
+.btn-box{
+  text-align:center;
+  padding-bottom:50px;
+}
+
+.book-btn{
+  padding:15px 45px;
+  font-size:18px;
+  border:none;
+  background:#0b6623;
+  color:white;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+/* ANIMATION */
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .santa{
+    position:static;
+    margin:40px auto 0;
+    width:220px;
+  }
+  .hero{
+    text-align:center;
+  }
+  .hero p{
+    margin:auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>🎄 Christmas Special Offer</h1>
+    <h2>Flat 30% OFF</h2>
+    <p>
+      Celebrate Christmas with Santa Claus, festive dinner,
+      live music and luxury hotel stay.
+    </p>
+  </div>
+
+  <!-- 🎅 SANTA CLAUS IMAGE (ONLINE – WORKS 100%) -->
+  <div class="santa">
+       <img src="https://images.unsplash.com/photo-1603793303277-ed67787545e5?auto=format&fit=crop&w=800&q=80" alt="Santa Claus">
+
+  </div>
+</section>
+
+<!-- OFFER ITEMS -->
+<section class="offers">
+  <div class="offer-item">
+    <h3>🎅 Santa Costume</h3>
+    <p>Fun Santa dress & activities</p>
+  </div>
+
+  <div class="offer-item">
+    <h3>🍽 Christmas Dinner</h3>
+    <p>Special festive menu</p>
+  </div>
+
+  <div class="offer-item">
+    <h3>🎶 Live Music</h3>
+    <p>Christmas songs night</p>
+  </div>
+
+  <div class="offer-item">
+    <h3>🏊 Pool Access</h3>
+    <p>Free swimming access</p>
+  </div>
+</section>
+
+<!-- BUTTON -->
+<div class="btn-box">
+  <p><b>Valid: December 20 – December 26</b></p><br>
+  <button class="book-btn" onclick="book()">BOOK CHRISTMAS OFFER</button>
+</div>
+
+<script>
+function goBooking(){
+  window.location.href = "booking.html";
+}
+function book(){
+    alert("Your Booking Confirmed!...Thank you")
+}
+</script>
+
+</body>
+</html>
